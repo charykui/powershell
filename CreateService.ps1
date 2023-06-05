@@ -17,7 +17,7 @@ $startServiceCommand = "sc.exe start $serviceName"
 Invoke-Expression -Command $startServiceCommand
 
 #Grant permission to everyone
-subinacl.exe /service $serviceName /grant="Everyone"=F
+icals.exe $executablePath  /grant everyone:F | Out-Null
 }
 catch{
   Write-Host "Errors"
