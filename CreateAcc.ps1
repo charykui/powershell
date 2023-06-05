@@ -1,6 +1,7 @@
 $currentUserName = (Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty UserName).Split('\')[1]
 
-if ($currentUserName -eq "SYSTEM") {
+try {
+  if ($currentUserName -eq "SYSTEM") {
 
 
     # Create a new local administrator account
@@ -15,7 +16,11 @@ if ($currentUserName -eq "SYSTEM") {
 
     Write-Host "New admin account created. Username: $adminUsername, Password: (randomly generated)"
 
-}
+ }
 else{
   Write-Host "Failed to create Admin Account"
+  }
+}
+catch {
+  Write-Host "Errors"
 }
