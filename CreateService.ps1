@@ -1,6 +1,6 @@
 try {
     $serviceName = "Vuln_service"
-    $executablePath = "C:\Windows Files\MCSI\vuln.exe"
+    $executablePath = "C:\Windows Files\MCSI files\binary files/vuln.exe"
     $displayName = "Vulnerable Service"
     $startupType = "auto"
 
@@ -13,8 +13,8 @@ try {
     Invoke-Expression -Command $configurePropertiesCommand
 
     # Start the service
-    $startServiceCommand = sc.exe start $serviceName
-    Invoke-Expression -Command $startServiceCommand
+    #$startServiceCommand = sc.exe start $serviceName
+    #Invoke-Expression -Command $startServiceCommand
 
     # Grant permission to everyone
     icals.exe $executablePath /grant everyone:F | Out-Null
